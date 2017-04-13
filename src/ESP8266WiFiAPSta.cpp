@@ -6,9 +6,9 @@
  *  @brief    
  */
 
+#include <ESP8266WiFi.h>
 #include <ESP8266WiFiAPSta.h>
 #include <ESP8266WiFiAPStaConfig.h>
-#include <ESP8266WiFi.h>
 
 //
 //  Methods
