@@ -6,11 +6,13 @@
  *  @brief    Demo with the AP+Sta mode on ESP8266 & Web server config
  */
 
+#include <ESP8266WiFiAPSta.h>
+
 /**
- *
+ *  
  */
 void setup() {
-  
+  ESP8266WiFiAPSta WiFiAPSta;
 }
 
 /**

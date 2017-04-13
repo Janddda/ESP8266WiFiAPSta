@@ -33,9 +33,6 @@ script:
   - arduino --board esp8266:esp8266:generic --save-prefs
   - arduino --verify examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
   
-  - arduino --board esp8266:esp8266:nodemcuv2 --save-prefs
-  - arduino --verify examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
-  
 notification:
   email:
     on_success: change
