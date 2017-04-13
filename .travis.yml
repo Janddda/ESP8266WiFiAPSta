@@ -25,6 +25,7 @@ install:
   
   # Update library
   - arduino --install-library USBHost
+  - arduino --install-library ESP8266WiFi
   
   # Set build
   - arduino --pref "compiler.warning_level=all" --save-prefs
