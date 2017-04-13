@@ -30,8 +30,8 @@ install:
   - arduino --pref "compiler.warning_level=all" --save-prefs
 
 script:
-  - arduino --verify --board esp8266:8266:generic examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
-  - arduino --verify --board esp8266:8266:nodemcuv2 examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
+  - arduino --verify --board esp8266:esp8266:generic examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
+  - arduino --verify --board esp8266:esp8266:nodemcuv2 examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
   
 notification:
   email:
