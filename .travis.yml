@@ -1,0 +1,39 @@
+language: c
+sudo: false
+
+before_install:
+  # Prepare display for Arduino
+  - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16
+  - sleep 3
+  - export DISPLAY=:1.0
+
+  # Download Arduino 1.6.5
+  - wget https://downloads.arduino.cc/arduino-1.6.5-linux64.tar.xz
+  - tar xf arduino-1.6.5-linux64.tar.xz
+  - mv arduino-1.6.5 $HOME/arduino_ide
+  
+  # Move this library into Arduino
+  - ln -s $PWD $HOME/arduino_ide/libraries/ESP8266WiFiAPSta
+  
+  # Add Arduino directory into PATH
+  - export PATH="$HOME/arduino_ide:$PATH"
+
+install:
+  # Add ESP8266 Package
+  - arduino --pref "boardsmanager.additional.urls=http://arduino.esp8266.com/stable/package_esp8266com_index.json" --save-prefs
+  - arduino --install-boards esp8266:esp8266 --save-prefs
+  
+  # Update library
+  - arduino --install-library USBHost
+  
+  # Set build
+  - arduino --pref "compiler.warning_level=all" --save-prefs
+
+script:
+  - arduino --verify --board esp8266:8266:generic examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
+  - arduino --verify --board esp8266:8266:nodemcuv2 examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
+  
+notification:
+  email:
+    on_success: change
+    on_failure: change
