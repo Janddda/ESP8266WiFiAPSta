@@ -9,6 +9,9 @@
 #ifndef __ESP8266WIFIAPSTA_H
 #define __ESP8266WIFIAPSTA_H
 
+#include <ESP8266WiFiAPStaConfig.h>
+#include <ESP8266WiFi.h>
+
 //
 //  Global variables
 //
