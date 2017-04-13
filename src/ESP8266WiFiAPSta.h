@@ -20,7 +20,7 @@
 
 class ESP8266WiFiAPSta {
   private:
-    
+    void initWiFi();
     
   public:
     ESP8266WiFiAPSta();

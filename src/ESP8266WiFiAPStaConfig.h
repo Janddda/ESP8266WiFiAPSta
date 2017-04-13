@@ -10,6 +10,28 @@
 #ifndef __ESP8266WIFIAPSTACONFIG_H
 #define __ESP8266WIFIAPSTACONFIG_H
 
+#ifndef _WIFIAPSTA_AP_SSID
+#define _WIFIAPSTA_AP_SSID
+/// Default access point SSID
+static const char *WIFIAPSTA_AP_SSID = "ESP8266WiFiAPSta";
+#endif
 
+#ifndef _WIFIAPSTA_AP_SECRET
+#define _WIFIAPSTA_AP_SECRET
+/// Default access point password
+static const char *WIFIAPSTA_AP_SECRET = "I<3C0ff33!";
+#endif
+
+#ifndef _WIFIAPSTA_AP_CHANNEL
+#define _WIFIAPSTA_AP_CHANNEL
+/// Default access point channel
+static const char WIFIAPSTA_AP_CHANNEL = 4;
+#endif
+
+#ifndef _WIFIAPSTA_AP_HIDDEN
+#define _WIFIAPSTA_AP_HIDDEN
+/// Hide access point SSID
+static const char WIFIAPSTA_AP_HIDDEN = 1;
+#endif
 
 #endif
