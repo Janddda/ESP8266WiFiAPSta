@@ -20,8 +20,8 @@ before_install:
 
 install:
   # Add ESP8266 Package
-  - arduino --pref "boardsmanager.additional.urls=http://arduino.esp8266.com/stable/package_esp8266com_index.json" --save-prefs
-  - arduino --install-boards esp8266:esp8266 --save-prefs
+  - arduino --pref "boardsmanager.additional.urls=http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+  - arduino --install-boards esp8266:esp8266
   
   # Update library
   - arduino --install-library USBHost
@@ -30,8 +30,11 @@ install:
   - arduino --pref "compiler.warning_level=all" --save-prefs
 
 script:
-  - arduino --verify --board esp8266:esp8266:generic examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
-  - arduino --verify --board esp8266:esp8266:nodemcuv2 examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
+  - arduino --board esp8266:esp8266:generic --save-prefs
+  - arduino --verify examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
+  
+  - arduino --board esp8266:esp8266:nodemcuv2 --save-prefs
+  - arduino --verify examples/ESP8266WiFiAPSta/ESP8266WiFiAPSta.ino
   
 notification:
   email:
