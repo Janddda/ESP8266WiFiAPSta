@@ -6,9 +6,14 @@
  *  @brief    
  */
 
-#include <ESP8266WiFi.h>
 #include <ESP8266WiFiAPSta.h>
-#include <ESP8266WiFiAPStaConfig.h>
+
+//
+// Global variables
+//
+
+/// Web resource server
+ESP8266WebServer WiFiAPStaServer(WIFIAPSTA_WEB_PORT);
 
 //
 //  Methods
@@ -20,6 +25,7 @@
  */
 ESP8266WiFiAPSta::ESP8266WiFiAPSta() {
   initWiFi();
+  initWebServer();
 }
 
 /**
@@ -28,6 +34,15 @@ ESP8266WiFiAPSta::ESP8266WiFiAPSta() {
 void ESP8266WiFiAPSta::initWiFi() {
   WiFi.mode(WIFI_AP_STA);
   WiFi.softAP(WIFIAPSTA_AP_SSID, WIFIAPSTA_AP_SECRET, WIFIAPSTA_AP_CHANNEL, WIFIAPSTA_AP_HIDDEN);
+}
+
+/**
+ *
+ */
+void ESP8266WiFiAPSta::initWebServer() {
+  WiFiAPStaServer.on("/", []() {
+    WiFiAPStaServer.send(200, "text/plain", "I like coffee!");
+  });
 }
 
 

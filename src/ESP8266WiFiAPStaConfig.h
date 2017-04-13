@@ -25,13 +25,19 @@ static const char *WIFIAPSTA_AP_SECRET = "I<3C0ff33!";
 #ifndef _WIFIAPSTA_AP_CHANNEL
 #define _WIFIAPSTA_AP_CHANNEL
 /// Default access point channel
-static const char WIFIAPSTA_AP_CHANNEL = 4;
+static const unsigned char WIFIAPSTA_AP_CHANNEL = 4;
 #endif
 
 #ifndef _WIFIAPSTA_AP_HIDDEN
 #define _WIFIAPSTA_AP_HIDDEN
 /// Hide access point SSID
-static const char WIFIAPSTA_AP_HIDDEN = 1;
+static const unsigned char WIFIAPSTA_AP_HIDDEN = 0;
+#endif
+
+#ifndef _WIFIAPSTA_WEB_PORT
+#define _WIFIAPSTA_WEB_PORT
+/// Default port for the web server
+static const unsigned int WIFIAPSTA_WEB_PORT = 9999;
 #endif
 
 #endif

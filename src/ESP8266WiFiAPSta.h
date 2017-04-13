@@ -9,10 +9,9 @@
 #ifndef __ESP8266WIFIAPSTA_H
 #define __ESP8266WIFIAPSTA_H
 
-
-//
-//  Global variables
-//
+#include <ESP8266WebServer.h>
+#include <ESP8266WiFi.h>
+#include <ESP8266WiFiAPStaConfig.h>
 
 
 //
@@ -22,6 +21,7 @@
 class ESP8266WiFiAPSta {
   private:
     void initWiFi();
+    void initWebServer();
     
   public:
     ESP8266WiFiAPSta();

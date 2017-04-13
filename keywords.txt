@@ -16,7 +16,14 @@ ESP8266WiFiAPSta  KEYWORD3
 # Methods and Functions (KEYWORD2)
 #######################################
 
+initWiFi          KEYWORD2
+
 #######################################
 # Constants (LITERAL1)
 #######################################
 
+WIFIAPSTA_AP_SSID       LITERAL1
+WIFIAPSTA_AP_SECRET     LITERAL1
+WIFIAPSTA_AP_CHANNEL    LITERAL1
+WIFIAPSTA_AP_HIDDEN     LITERAL1
+WIFIAPSTA_WEB_PORT      LITERAL1
