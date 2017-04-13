@@ -12,18 +12,31 @@ ESP8266WiFiAPSta  KEYWORD3
 # Datatypes (KEYWORD1)
 #######################################
 
+staSecret       KEYWORD1
+staSsid         KEYWORD1
+
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
+handleClient      KEYWORD2
+initEEPROM        KEYWORD2
+initWebServer     KEYWORD2
 initWiFi          KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
 #######################################
 
-WIFIAPSTA_AP_SSID       LITERAL1
-WIFIAPSTA_AP_SECRET     LITERAL1
-WIFIAPSTA_AP_CHANNEL    LITERAL1
-WIFIAPSTA_AP_HIDDEN     LITERAL1
-WIFIAPSTA_WEB_PORT      LITERAL1
+WIFIAPSTA_AP_SSID             LITERAL1
+WIFIAPSTA_AP_SECRET           LITERAL1
+WIFIAPSTA_AP_CHANNEL          LITERAL1
+WIFIAPSTA_AP_HIDDEN           LITERAL1
+WIFIAPSTA_EEPROM_SECRET       LITERAL1
+WIFIAPSTA_EEPROM_SECRET_SIZE  LITERAL1
+WIFIAPSTA_EEPROM_SSID         LITERAL1
+WIFIAPSTA_EEPROM_SSID_SIZE    LITERAL1
+WIFIAPSTA_EEPROM_STATUS       LITERAL1
+WIFIAPSTA_STATUS_EMPTY        LITERAL1
+WIFIAPSTA_STATUS_SAVED        LITERAL1
+WIFIAPSTA_WEB_PORT            LITERAL1

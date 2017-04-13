@@ -34,6 +34,13 @@ static const unsigned char WIFIAPSTA_AP_CHANNEL = 4;
 static const unsigned char WIFIAPSTA_AP_HIDDEN = 0;
 #endif
 
+#ifndef _WIFIAPSTA_EEPROM_START
+#define _WIFIAPSTA_EEPROM_START
+/// First address where are stored WiFiAPSta data
+/// Next 50 addresses are reserved then DO NOT USE THEM
+static const unsigned int WIFIAPSTA_EEPROM_START = 0;
+#endif
+
 #ifndef _WIFIAPSTA_WEB_PORT
 #define _WIFIAPSTA_WEB_PORT
 /// Default port for the web server
