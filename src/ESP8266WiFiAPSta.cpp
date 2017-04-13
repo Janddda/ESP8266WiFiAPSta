@@ -37,12 +37,25 @@ void ESP8266WiFiAPSta::initWiFi() {
 }
 
 /**
- *
+ *  Handle all http request and start web server
  */
 void ESP8266WiFiAPSta::initWebServer() {
   WiFiAPStaServer.on("/", []() {
     WiFiAPStaServer.send(200, "text/plain", "I like coffee!");
   });
+  
+  WiFiAPStaServer.onNotFound([]() {
+    WiFiAPStaServer.send(404, "text/plain", "No more coffee :'(");
+  });
+  
+  WiFiAPStaServer.begin();
+}
+
+/**
+ *  Handle client http connection
+ */
+void ESP8266WiFiAPSta::handleClient() {
+  WiFiAPStaServer.handleClient();
 }
 
 

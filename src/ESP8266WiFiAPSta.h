@@ -25,6 +25,7 @@ class ESP8266WiFiAPSta {
     
   public:
     ESP8266WiFiAPSta();
+    void handleClient();
 };
 
 #endif

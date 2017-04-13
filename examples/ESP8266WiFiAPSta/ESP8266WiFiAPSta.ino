@@ -10,16 +10,18 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266WiFiAPSta.h>
 
+ESP8266WiFiAPSta WiFiAPSta;
+
 /**
  *  
  */
 void setup() {
-  ESP8266WiFiAPSta WiFiAPSta;
+  
 }
 
 /**
  *  
  */
 void loop() {
-  
+  WiFiAPSta.handleClient();
 }
