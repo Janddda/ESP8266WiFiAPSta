@@ -17,7 +17,8 @@ ESP8266WiFiAPSta WiFiAPSta;
  *  
  */
 void setup() {
-  
+  EEPROM.begin(50);
+  WiFiAPSta.init();
 }
 
 /**

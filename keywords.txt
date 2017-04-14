@@ -13,6 +13,7 @@ ESP8266WiFiAPSta  KEYWORD3
 #######################################
 
 staSecret       KEYWORD1
+staStatus       KEYWORD1
 staSsid         KEYWORD1
 
 #######################################

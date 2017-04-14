@@ -9,6 +9,7 @@
 #ifndef __ESP8266WIFIAPSTA_H
 #define __ESP8266WIFIAPSTA_H
 
+#include <EEPROM.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266WiFi.h>
@@ -48,15 +49,18 @@ static const unsigned char WIFIAPSTA_STATUS_SAVED = 24;
 
 class ESP8266WiFiAPSta {
   private:
-    char *staSsid;
-    char *staSecret;
+    unsigned char staStatus;
+    char staSsid[20];
+    char staSecret[20];
   
+    void initEEPROM();
     void initWiFi();
     void initWebServer();
     
   public:
     ESP8266WiFiAPSta();
     void handleClient();
+    void init();
 };
 
 #endif
