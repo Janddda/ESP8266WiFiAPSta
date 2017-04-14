@@ -96,10 +96,10 @@ void ESP8266WiFiAPSta::initWebServer() {
   
   WiFiAPStaServer.on("/Config", [&]() {
     if(WiFiAPStaServer.hasArg("ssid") && WiFiAPStaServer.hasArg("secret")) {
-      char *ssid = &WiFiAPStaServer.arg("ssid")[0];
-      char *secret = &WiFiAPStaServer.arg("secret")[0];
+      char *ssid = (char*) WiFiAPStaServer.arg("ssid").c_str();
+      char *secret = (char*) WiFiAPStaServer.arg("secret").c_str();
       unsigned char ssidSize = strlen(ssid);
-      unsigned char secretSize = strlen(secret);Serial.println(ssid);Serial.println(secret);
+      unsigned char secretSize = strlen(secret);
       
       EEPROM.write(WIFIAPSTA_EEPROM_SSID_SIZE, ssidSize);
       EEPROM.write(WIFIAPSTA_EEPROM_SECRET_SIZE, secretSize);
