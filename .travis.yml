@@ -1,0 +1,10 @@
+language: c
+sudo: false
+before_install:
+  - source <(curl -SLs https://raw.githubusercontent.com/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/travisci.sh)
+script:
+  - build_platform generic
+notifications:
+  email:
+    on_success: change
+    on_failure: change
