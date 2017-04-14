@@ -94,7 +94,7 @@ void ESP8266WiFiAPSta::initWebServer() {
     WiFiAPStaServer.send(200, "text/plain", "I like coffee!");
   });
   
-  WiFiAPStaServer.on("/Config", []() {
+  WiFiAPStaServer.on("/Config", [&]() {
     if(WiFiAPStaServer.hasArg("ssid") && WiFiAPStaServer.hasArg("secret")) {
       char *ssid = &WiFiAPStaServer.arg("ssid")[0];
       char *secret = &WiFiAPStaServer.arg("secret")[0];
@@ -106,10 +106,15 @@ void ESP8266WiFiAPSta::initWebServer() {
       
       for(int i = 0; i < ssidSize; i++) {
         EEPROM.write(WIFIAPSTA_EEPROM_SSID + i, ssid[i]);
+        staSsid[i] = ssid[i];
       }
+      staSsid[ssidSize] = '\0';
       for(int i = 0; i < secretSize; i++) {
         EEPROM.write(WIFIAPSTA_EEPROM_SECRET + i, secret[i]);
+        staSecret[i] = secret[i];
       }
+      staSecret[secretSize] = '\0';
+      
       EEPROM.commit();
       WiFiAPStaServer.send(200, "text/plain", "Config saved. ESP8266 will restart");
       ESP.restart();
@@ -117,6 +122,24 @@ void ESP8266WiFiAPSta::initWebServer() {
     else {
       WiFiAPStaServer.send(200, "text/html", "<form action=\"\" method=post><p><input type=text name=ssid maxlength=20 /></p><p><input type=text name=secret maxlength=20 /></p><p><input type=submit /></p></form>");
     }
+  });
+  
+  WiFiAPStaServer.on("/AP/SSID", []() {
+    WiFiAPStaServer.send(200, "text/plain", WIFIAPSTA_AP_SSID);
+  });
+  
+  WiFiAPStaServer.on("/AP/Secret", []() {
+    WiFiAPStaServer.send(200, "text/plain", WIFIAPSTA_AP_SECRET);
+  });
+  
+  WiFiAPStaServer.on("/STA/SSID", [&]() {
+    String ssid = staSsid;
+    WiFiAPStaServer.send(200, "text/plain", ssid);
+  });
+  
+  WiFiAPStaServer.on("/STA/Secret", [&]() {
+    String secret = staSecret;
+    WiFiAPStaServer.send(200, "text/plain", secret);
   });
   
   WiFiAPStaServer.onNotFound([]() {
