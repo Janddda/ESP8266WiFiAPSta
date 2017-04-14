@@ -4,6 +4,7 @@ before_install:
   - source travisci.sh
 script:
   - build_platform generic
+  - build_platform nodemcuv2
 notifications:
   email:
     on_success: change
