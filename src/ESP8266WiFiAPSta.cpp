@@ -151,6 +151,14 @@ void ESP8266WiFiAPSta::initWebServer() {
     }
   });
   
+  WiFiAPStaServer.on("/STA/IP", []() {
+    if(WiFi.status() == WL_CONNECTED) {
+      WiFiAPStaServer.send(200, "text/plain", WiFi.localIP().toString());
+    } else {
+      WiFiAPStaServer.send(200, "text/plain", "0.0.0.0");
+    }
+  });
+  
   WiFiAPStaServer.onNotFound([]() {
     WiFiAPStaServer.send(404, "text/plain", "No more coffee :'(");
   });
