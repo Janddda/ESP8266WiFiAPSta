@@ -11,12 +11,12 @@ ESP8266 library for WiFi in AP+Sta mode + Web server config
   - SSID: ESP8266WiFiAPSta
   - Password: I<3Coffee!
 5. Site map
-  - / (root page) : just a text
-  - /Config : Config your station mode, first input is the SSID, the second one
+  - http://192.168.4.1:9999/ (root page) : just a text
+  - http://192.168.4.1:9999/Config : Config your station mode, first input is the SSID, the second one
     is the password
-  - /AP/SSID : Display the access point SSID
-  - /AP/Secret : Display the access point password
-  - /STA/SSID : Display the current station SSID
-  - /STA/Secret : Display the current station secret
-  - /STA/IP : Display the current station local address (0.0.0.0 means ESP8266
+  - http://192.168.4.1:9999/AP/SSID : Display the access point SSID
+  - http://192.168.4.1:9999/AP/Secret : Display the access point password
+  - http://192.168.4.1:9999/STA/SSID : Display the current station SSID
+  - http://192.168.4.1:9999/STA/Secret : Display the current station secret
+  - http://192.168.4.1:9999/STA/IP : Display the current station local address (0.0.0.0 means ESP8266
     is not connected)
